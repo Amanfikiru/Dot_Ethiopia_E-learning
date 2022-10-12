@@ -47,5 +47,20 @@ values(
    '$phone_number',
    '$encrypted_password'
 )";
-
+/*Checking if the data is actually is inserted into the database.. */
+/* A JSON response file is sent accordingly */
+$result = mysqli_query($conn,$sql);
+if($result){
+        $response['data'] = array(
+            'status' => 'valid'    
+        );
+        echo json_encode($response);
 }
+else{
+    $response['data'] = array(
+        'status' => 'invalid'
+    );    
+    echo json_encode($response);
+}
+}
+?>
