@@ -9,6 +9,7 @@ const Head = () => {
                     <div className='companyname'>
                         <h1 className='intro'>dot</h1>
                         <h4 className='eth'>Ethiopia</h4>
+                        <span>&reg;</span>
                         </div>
                     <span>ONLINE EDUCATION & LEARNING</span>
                 </div>

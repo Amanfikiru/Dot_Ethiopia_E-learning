@@ -1,6 +1,9 @@
 import "./App.css"
 import Header from './components/common/heading/Header'
-import {BrowserRouter as Router, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import home from "./components/home/home";
+
+
 
 function App () {
   return (
@@ -9,9 +12,7 @@ function App () {
       <Router>
         <Header />
         <Switch>
-          {/*<Route path="/about">
-            <About />
-          </Route>*/}
+          <Route path='/' exact component={home}/>
         </Switch>
       </Router> 
     </>

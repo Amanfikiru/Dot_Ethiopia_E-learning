@@ -20,7 +20,7 @@ const Header = () => {
                 <div className="start">
                     <div className="joining"> GET CERTIFIED </div>
                 </div>
-                <button className='toggle' onClick={() => setClick(!click)}>
+                <button className='button toggle' onClick={() => setClick(!click)}>
                     {click ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}
                 </button>
             </nav>
