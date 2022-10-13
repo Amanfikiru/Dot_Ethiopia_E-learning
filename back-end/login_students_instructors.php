@@ -25,8 +25,31 @@ if($choice == 'student'){
         $outp .= '{"email":"'    . $rs["email"] .  '",';
         $outp .= '"first_name":"'   .$rs["first_name"]. '",';
         $outp .= '"last_name":"'   .$rs["last_name"]. '",';
-        $outp .= '"status":"'.$rs["200"].'"};
+        $outp .= '"status":"200"}';
 
+        echo $outp;
+    }else{
+        http_response_code(202);
     }
+if($choice == 'instructor'){
+        $sql = "SELECT * from instructor WHERE email='".$email."' AND password='".$password."'";
+        $result = mysqli_query($conn,$sql);
+        $nums = mysqli_num_rows($result);
+        $rs = mysqli_fetch_array($result);
+        if($nums>=1){
+            http_response_code(200);
+            $outp = "";
+    
+            $outp .= '{"email":"'    . $rs["email"] .  '",';
+            $outp .= '"first_name":"'   .$rs["first_name"]. '",';
+            $outp .= '"last_name":"'   .$rs["last_name"]. '",';
+            $outp .= '"status":"200"}';
+    
+            echo $outp;
+        }else{
+            http_response_code(202);
+        }
+    
+}
 }
 ?>
