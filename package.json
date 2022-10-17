@@ -1,0 +1,19 @@
+{
+  "name": "dot_ethiopia_e-learning",
+  "version": "1.0.0",
+  "description": "Official repository for the E_Learning management system that is going to be developed using React.js, PHP and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amanfikiru/Dot_Ethiopia_E-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amanfikiru/Dot_Ethiopia_E-learning/issues"
+  },
+  "homepage": "https://github.com/Amanfikiru/Dot_Ethiopia_E-learning#readme"
+}
