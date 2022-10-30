@@ -1,26 +1,34 @@
+import Sidebar from "./components/sidebar/Sidebar";
+import Topbar from "./components/topbar/Topbar";
+import "./App.css";
+import Home from "./pages/home/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CourseList from "./pages/courseList/CourseList";
+import NewCourse from "./pages/newCourse/NewCourse";
 
-import './App.css';
 
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Register from './components/register/register';
-import Home from './components/home/home';
-import Login from './components/login/login';
-function App() {  
-  
+
+function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="Registration" element={<Register/>}/>        
-        <Route path="Login" element={<Login/>}/>
-        
-        </Routes>
-
-      </BrowserRouter>
-    </>
+    <Router>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/courses">
+            <CourseList />
+          </Route>
+          <Route path="/newCourse">
+            <NewCourse />
+          </Route>
+          
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
 export default App;
-
