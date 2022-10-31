@@ -1,24 +1,36 @@
-import "./App.css"
-import Header from './components/common/heading/Header'
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import home from "./components/home/home";
-import About from "./components/about/About";
+import Sidebar from "./components/sidebar/Sidebar";
+import Topbar from "./components/topbar/Topbar";
+import "./App.css";
+import Home from "./pages/home/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CourseList from "./pages/courseList/CourseList";
+import NewCourse from "./pages/newCourse/NewCourse";
+
+
 
 
 
 function App () {
   return (
-    <>
-      
-      <Router>
-        <Header />
+    <Router>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
         <Switch>
-          <Route path='/' exact component={home}/>
-          <Route path='/about' exact component={About}/>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/courses">
+            <CourseList />
+          </Route>
+          <Route path="/newCourse">
+            <NewCourse />
+          </Route>
+          
         </Switch>
-      </Router> 
-    </>
-  )
+      </div>
+    </Router>
+  );
 }
 
 export default App
