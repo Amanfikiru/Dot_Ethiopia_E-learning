@@ -48,6 +48,56 @@ export const userData = [
       "Active Students": 3000,
     },
   ];
+  export const InstructorData = [
+    {
+      name: "Jan",
+      "Active Instructor": 4000,
+    },
+    {
+      name: "Feb",
+      "Active Instructor": 3000,
+    },
+    {
+      name: "Mar",
+      "Active Instructor": 5000,
+    },
+    {
+      name: "Apr",
+      "Active Instructor": 4000,
+    },
+    {
+      name: "May",
+      "Active Instructor": 3000,
+    },
+    {
+      name: "Jun",
+      "Active Instructor": 2000,
+    },
+    {
+      name: "Jul",
+      "Active Instructor": 4000,
+    },
+    {
+      name: "Agu",
+      "Active Instructor": 3000,
+    },
+    {
+      name: "Sep",
+      "Active Instructor": 4000,
+    },
+    {
+      name: "Oct",
+      "Active Instructor": 1000,
+    },
+    {
+      name: "Nov",
+      "Active Instructor": 4000,
+    },
+    {
+      name: "Dec",
+      "Active Instructor": 3000,
+    },
+  ];
   export const userDatas = [
     {
       name: "Jan",
@@ -98,19 +148,53 @@ export const userData = [
       "Active Courses": 3000,
     },
   ];
-  export const productData = [
+  export const instructorRows = [
     {
-      name: "Jan",
-      "Sales": 4000,
+      id: 1,
+      username: "Amanuel Fikiru",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      lecturing: "start up",
     },
     {
-      name: "Feb",
-      "Sales": 3000,
+      id: 2,
+      username: "Yonathan Birhanu",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      lecturing: "personal dev",
     },
     {
-      name: "Mar",
-      "Sales": 5000,
+      id: 3,
+      username: "tigist wolde",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      lecturing: "Scale up",
     },
+    {
+      id: 4,
+      username: "Aklesia Mekonnen",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      lecturing: "Women Empowerment",
+    },
+    {
+      id: 5,
+      username: "Danel Abay",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      lecturing: "Reach up",
+    },
+    
   ];
 
   export const userRows = [

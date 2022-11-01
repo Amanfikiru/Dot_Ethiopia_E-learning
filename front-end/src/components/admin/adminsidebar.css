@@ -1,0 +1,45 @@
+.adminsidebar {
+    flex: 1;
+    height: calc(100vh - 50px);
+    background-color: black;
+    position: sticky;
+    top: 50px;
+  }
+  
+  .adminsidebarWrapper {
+    padding: 20px;
+    color: orange;
+  }
+  
+  .adminsidebarMenu {
+    margin-bottom: 10px;
+  }
+  
+  .adminsidebarTitle {
+    font-size: 13px;
+    color: rgb(187, 186, 186);
+  }
+  
+  .adminsidebarList {
+    list-style: none;
+    padding: 5px;
+  }
+  
+  .adminsidebarListItem {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  
+  .adminsidebarListItem:hover {
+    background-color: white;
+  }
+  
+  .adminsidebarIcon{
+      margin-right: 5px;
+      font-size: 20px !important;
+  }
+  
