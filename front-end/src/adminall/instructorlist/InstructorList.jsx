@@ -2,16 +2,25 @@ import React from 'react'
 import "./instructorList.css";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
+import { DeleteOutline,  } from "@material-ui/icons";
 import { useState } from "react";
 import { instructorRows } from "../../dummyData";
 
-export const InstructorList = () => {    
-    const [data, setData] = useState(instructorRows);
+const [data, setData] = useState(instructorRows);
+id = params.row.id;
+
+function dataset(id){
+    
+    return(id);
+}
+export const InstructorList = () => {
 
     const handleDelete = (id) => {
         setData(data.filter((item) => item.id !== id));
     };
+    const dataofinstructor = ({id}) => {
+        setData(data.filter((item) => item.id !== id));
+    }
     
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
@@ -46,8 +55,9 @@ export const InstructorList = () => {
         renderCell: (params) => {
             return (
             <>
-                <Link to={"/InstructorEdit/" + params.row.id}>
+                <Link to={"/admin/instructor/edit/" + params.row.id}>
                 <button className="instructorListEdit">Edit</button>
+                <Child parentToChild={dataset}/>
                 </Link>
                 <DeleteOutline
                 className="instructorListDelete"

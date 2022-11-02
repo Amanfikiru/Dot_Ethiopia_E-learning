@@ -10,13 +10,13 @@
   }
   
   .userAddButton {
-    width: 80px;
+    width: 150px;
     border: none;
     padding: 5px;
-    background-color: teal;
+    background-color: black;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
+    color: orange;
     font-size: 16px;
   }
   
@@ -148,7 +148,7 @@
       border: none;
       padding: 5px;
       cursor: pointer;
-      background-color: darkblue;
-      color: white;
+      background-color: black;
+      color: orange;
       font-weight: 600;
   }

@@ -9,14 +9,16 @@ import {
   } from "@material-ui/icons";
   import { Link } from "react-router-dom";
   import "./instructorEdit.css";
+import {dataset} from "./instructorList/InstructorList";
 
 export const InstructorEdit = () => {
+  const [dataset, setData] = useState(instructorRows);
   return (
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit Instructor</h1>
-        <Link to="/NewInsturctor">
-          <button className="userAddButton">Create</button>
+        <Link to="/admin/instructor/create">
+          <button className="userAddButton">Create New</button>
         </Link>
       </div>
       <div className="userContainer">
@@ -114,7 +116,10 @@ export const InstructorEdit = () => {
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              <button className="userUpdateButton">Update</button>
+              <Link to="/admin/instructor/list">
+                <button className="userUpdateButton">Update</button>
+              </Link>
+              
             </div>
           </form>
         </div>

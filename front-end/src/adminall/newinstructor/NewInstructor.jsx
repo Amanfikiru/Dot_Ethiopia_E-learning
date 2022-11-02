@@ -1,6 +1,6 @@
 import React from 'react'
 import { Publish,} from "@material-ui/icons";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./newInstructor.css";
 
 export const NewInstructor = () => {  
@@ -59,6 +59,11 @@ export const NewInstructor = () => {
                         className="InstructorUpdateInput"
                         />
                     </div>
+                    <input
+                        type="text"
+                        placeholder="Lecturing"
+                        className="InstructorUpdateInput"
+                        />
 
                   </div>
                   <div className="InstructorUpdateItem">
@@ -83,7 +88,10 @@ export const NewInstructor = () => {
                   </div>
                 </div>
               </form>
-              <button className="InstructorUpdateButton">Submit</button>
+              <Link to="/admin/instructor/list">
+                <button className="InstructorUpdateButton">Submit</button>
+              </Link>
+              
             </div>
           </div>
         

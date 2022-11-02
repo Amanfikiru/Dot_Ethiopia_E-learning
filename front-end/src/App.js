@@ -9,6 +9,8 @@ import Adminsidebar from "./components/admin/Adminsidebar";
 import Adminhome from "./adminall/adminhome/Adminhome";
 import { NewInstructor } from "./adminall/newinstructor/NewInstructor";
 import { InstructorList } from "./adminall/instructorlist/InstructorList";
+import { InstructorEdit } from "./adminall/instructoredit/InstructorEdit";
+import { AdminReport } from "./adminall/adminreport/AdminReport";
 
 function App () {
   return (
@@ -18,15 +20,22 @@ function App () {
       <div className="container">
         <Adminsidebar />
         <Switch>
-          <Route path="/admin">
+          <Route path="/admin/home">
             <Adminhome />
           </Route>
-          <Route path="/admincreate">
+          <Route path="/admin/Instructor/create">
             <NewInstructor />
           </Route>
-          <Route path="/admininstlist">
+          <Route path="/admin/instructor/list">
             <InstructorList />
           </Route>
+          <Route path="/admin/instructor/edit">
+            <InstructorEdit />
+          </Route>
+          <Route path="/admin/report">
+            <AdminReport />
+          </Route>
+
         </Switch>
       </div>
         

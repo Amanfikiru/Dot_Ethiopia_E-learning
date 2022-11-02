@@ -19,7 +19,7 @@ export default function Sidebar() {
         <div className="adminsidebarMenu">
           <h3 className="adminsidebarTitle">Admin Dashboard</h3>
           <ul className="adminsidebarList">
-            <Link to="/ " className="link">
+            <Link to="/admin/home" className="link">
             <li className="adminsidebarListItem active">
               <LineStyle className="adminsidebarIcon" />
               Home
@@ -42,10 +42,16 @@ export default function Sidebar() {
         <div className="adminsidebarMenu">
           <h3 className="adminsidebarTitle">Quick Menu</h3>
           <ul className="adminsidebarList">
-            <Link to="/admininstlist" className="link">
+            <Link to="/admin/instructor/list" className="link">
               <li className="adminsidebarListItem">
                 <TableChart className="adminsidebarIcon" />
                 Instructors
+              </li>
+            </Link>
+            <Link to="/admin/instructor/create" className="link">
+              <li className="adminsidebarListItem">
+                <TableChart className="adminsidebarIcon" />
+                Create Instructors
               </li>
             </Link>
             
@@ -58,10 +64,12 @@ export default function Sidebar() {
         <div className="adminsidebarMenu">
           <h3 className="adminsidebarTitle">Notifications</h3>
           <ul className="adminsidebarList">
-            <li className="adminsidebarListItem">
-              <MailOutline className="adminsidebarIcon" />
-              Reports
-            </li>
+            <Link to="/admin/report" className="link">
+              <li className="adminsidebarListItem">
+                <MailOutline className="adminsidebarIcon" />
+                Reports
+              </li>
+            </Link>
             <li className="adminsidebarListItem">
               <DynamicFeed className="adminsidebarIcon" />
               Feedback
