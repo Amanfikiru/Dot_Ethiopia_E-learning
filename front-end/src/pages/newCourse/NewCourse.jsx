@@ -1,10 +1,21 @@
 import { Publish,} from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios';
 import "./newCourse.css";
 
 
-export default function User() {
- 
+export default function NewCourse() {
+  const [courseTitle, setCourseTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [totalEnrolled, setTotalEnrolled] = useState('');
+  const postData = () => {
+    axios.post(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData`, {
+            courseTitle,
+            description,
+            totalEnrolled
+        })
+      }
   return (
     
     <div className="user">
@@ -22,22 +33,27 @@ export default function User() {
                 <label>Course Title </label>
                 <input
                   type="text"
-                  placeholder=""
+                  placeholder="CourseTitle"
+                  onChange={(e) => setCourseTitle(e.target.value)}
                   className="userUpdateInput"
                  
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Description</label>
-                <textarea id="w" rows="4" cols="50"></textarea>
+                <textarea id="w" rows="4" cols="50"onChange={(e) => setDescription(e.target.value)}>
+
+                </textarea>
+                
                   
               </div>
               <div className="userUpdateItem">
                 <label>Total Enrolled</label>
                 <input
                   type="text"
-                  placeholder=""
+                  placeholder="TotalEnrolled"
                   className="userUpdateInput"
+                  onChange={(e) => setTotalEnrolled(e.target.value)}
                 />
               </div>
              
@@ -54,7 +70,7 @@ export default function User() {
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              <button className="userUpdateButton">Add</button>
+              <button className="userUpdateButton" onClick={postData}>Add</button>
             </div>
           </form>
         </div>

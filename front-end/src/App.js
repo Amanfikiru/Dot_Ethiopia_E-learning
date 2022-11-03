@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CourseList from "./pages/courseList/CourseList";
 import NewCourse from "./pages/newCourse/NewCourse";
-
+import {CourseUpdateu} from "./pages/courseUpdate/CourseUpdateu";
 
 
 function App() {
@@ -23,6 +23,9 @@ function App() {
           </Route>
           <Route path="/newCourse">
             <NewCourse />
+          </Route>
+          <Route path="/courseEdit">
+            <CourseUpdateu />
           </Route>
           
         </Switch>

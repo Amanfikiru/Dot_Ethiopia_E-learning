@@ -1,86 +1,67 @@
 import "./courseList.css";
-import MaterialTable from '@material-table/core'
-import { useState } from "react";
+import { DataGrid } from "@material-ui/data-grid";
+import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
+export default function CourseList() {
+  const [data, setData] = useState(userRows);
 
-export default function UserList() {
-  const [data, setData] = useState(userRows)
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+  
   const columns = [
-    { title: "ID", field: "id", width: 90, editable: false },
+    { field: "id", headerName: "ID", width: 90 },
     {
-      title: "Course Title", field: "Title",width: 300, validate: rowData => {
-        if (rowData.Title === undefined || rowData.Title === "") {
-          return "Required"
-        } else if (rowData.Title.length < 3) {
-          return "Title should contains atleast 3 chars"
-        }
-        return true
-      }
+      field: "Title",
+      headerName: "Course Title",
+      width: 200,
+      renderCell: (params) => {
+        return (
+          <div className="userListUser">
+            <img className="userListImg" src={params.row.avatar} alt="" />
+            {params.row.Title}
+          </div>
+        );
+      },
     },
+    { field: "Description", headerName: "Description", width: 200 },
     {
-      title: "Description", field: "Description",width: 350 , validate: rowData => {
-        if (rowData.Description === undefined || rowData.Description === "") {
-          return "Required"
-        } else if (rowData.Description.length > 50 ) {
-          return "Description should not contain more than 150 chars"
-        }
-        return true
-      }
+      field: "TotalEnrolled",
+      headerName: "Total Enrolled",
+      width: 120,
     },
+   
     {
-      title: "Total Enrolled", field: 'TotalEnrolled',width: 200, validate: rowData => {
-        if (rowData.TotalEnrolled === undefined || rowData.TotalEnrolled === "") {
-          return "Required"
-        } 
-        else
-        return true
-      }
+      field: "action",
+      headerName: "Action",
+      width: 150,
+      renderCell: (params) => {
+        return (
+          <>
+            <Link to={"/courseEdit/" + params.row.id}>
+              <button className="userListEdit">Edit</button>
+            </Link>
+            <DeleteOutline
+              className="userListDelete"
+              onClick={() => handleDelete(params.row.id)}
+            />
+          </>
+        );
+      },
     },
-    
-
-  ]
-
+  ];
 
   return (
-    <div className="App">
-      <h1 align="center">Course Data</h1>
-      
-      <MaterialTable
-        title=""
-        data={data}
+    <div className="userList">
+      <DataGrid
+        rows={data}
+        disableSelectionOnClick
         columns={columns}
-        editable={{
-          onRowAdd: (newRow) => new Promise((resolve, reject) => {
-            const updatedRows = [...data, { id: Math.floor(Math.random() * 100), ...newRow }]
-            setTimeout(() => {
-              setData(updatedRows)
-              resolve()
-            }, 2000)
-          }),
-          onRowDelete: selectedRow => new Promise((resolve, reject) => {
-            const index = selectedRow.tableData.id;
-            const updatedRows = [...data]
-            updatedRows.splice(index, 1)
-            setTimeout(() => {
-              setData(updatedRows)
-              resolve()
-            }, 2000)
-          }),
-          onRowUpdate: (updatedRow, oldRow) => new Promise((resolve, reject) => {
-            const index = oldRow.tableData.id;
-            const updatedRows = [...data]
-            updatedRows[index] = updatedRow
-            setTimeout(() => {
-              setData(updatedRows)
-              resolve()
-            }, 2000)
-          })
-
-        }}
-        options={{
-          actionsColumnIndex: -1, addRowPosition: "first"
-        }}
+        pageSize={8}
+        checkboxSelection
       />
     </div>
   );
