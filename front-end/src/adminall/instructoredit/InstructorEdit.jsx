@@ -9,10 +9,9 @@ import {
   } from "@material-ui/icons";
   import { Link } from "react-router-dom";
   import "./instructorEdit.css";
-import {dataset} from "./instructorList/InstructorList";
+
 
 export const InstructorEdit = () => {
-  const [dataset, setData] = useState(instructorRows);
   return (
     <div className="user">
       <div className="userTitleContainer">

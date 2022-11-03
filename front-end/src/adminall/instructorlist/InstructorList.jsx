@@ -6,21 +6,14 @@ import { DeleteOutline,  } from "@material-ui/icons";
 import { useState } from "react";
 import { instructorRows } from "../../dummyData";
 
-const [data, setData] = useState(instructorRows);
-id = params.row.id;
 
-function dataset(id){
-    
-    return(id);
-}
+
 export const InstructorList = () => {
-
+    const [data, setData] = useState(instructorRows);
     const handleDelete = (id) => {
         setData(data.filter((item) => item.id !== id));
     };
-    const dataofinstructor = ({id}) => {
-        setData(data.filter((item) => item.id !== id));
-    }
+    
     
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
@@ -57,7 +50,6 @@ export const InstructorList = () => {
             <>
                 <Link to={"/admin/instructor/edit/" + params.row.id}>
                 <button className="instructorListEdit">Edit</button>
-                <Child parentToChild={dataset}/>
                 </Link>
                 <DeleteOutline
                 className="instructorListDelete"
