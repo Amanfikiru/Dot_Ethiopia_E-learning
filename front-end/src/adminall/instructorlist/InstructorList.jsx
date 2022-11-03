@@ -65,7 +65,7 @@ export const InstructorList = () => {
         <>
             <div className="instructorList">
                 
-                <Link to={"/admincreate"}>
+                <Link to={"/admin/instructor/create"}>
                     <button className="buttonaddtion">
                         Create New<i className='fa fa-arrows-alt-right'/></button>
                 </Link>                   

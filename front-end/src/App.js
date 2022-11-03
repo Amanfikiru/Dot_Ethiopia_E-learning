@@ -10,13 +10,14 @@ import Adminhome from "./adminall/adminhome/Adminhome";
 import { NewInstructor } from "./adminall/newinstructor/NewInstructor";
 import { InstructorList } from "./adminall/instructorlist/InstructorList";
 import { InstructorEdit } from "./adminall/instructoredit/InstructorEdit";
-import { AdminReport } from "./adminall/adminreport/AdminReport";
+import { AdminReport } from "./adminall/adminreport/adminreports/AdminReport";
+import { AdminReportList } from "./adminall/adminreport/AdminReportList";
+import {AdminCourseReport} from "./adminall/adminreport/adminreports/AdminCourseReport";
 
 function App () {
   return (
     <Router>
       <Topbar />
-
       <div className="container">
         <Adminsidebar />
         <Switch>
@@ -33,9 +34,14 @@ function App () {
             <InstructorEdit />
           </Route>
           <Route path="/admin/report">
+            <AdminReportList />
+          </Route>
+          <Route path="/admin/student/report">
             <AdminReport />
           </Route>
-
+          <Route path="/admin/course/report">
+            <AdminCourseReport />
+          </Route>
         </Switch>
       </div>
         

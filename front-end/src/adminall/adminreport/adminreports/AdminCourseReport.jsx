@@ -1,16 +1,17 @@
 import React from 'react'
 import { Box} from '@material-ui/core';
 import { DataGrid, GridToolbar } from '@material-ui/data-grid';
-import {Studentinfo} from "../../dummyData.js";
-import "./adminReport.css";
-import { tokens } from "../../Theme";
+import {Studentinfo} from "../../../dummyData.js";
+import "./reports.css";
+import { tokens } from "../../../Theme";
 import { useTheme } from "@mui/material";
-export const AdminReport = () => {
+
+export const AdminCourseReport = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const columns = [
         {field: "id", headerName: "ID"},
-        {field: "name",headerName: "name",width: 200,},
+        {field: "name",headerName: "name",width: 200,cellClassName: "name-column--cell"},
         { field: "email", headerName: "Email", width: 200 },
         { field: "gender", headerName: "Gender", width: 120 },
         { field: "city", headerName: "City", width: 200 },
@@ -22,8 +23,8 @@ export const AdminReport = () => {
     <>
     <div className='body'>
     <Box m="20px">
-        <h3 className='title'>Instructors</h3>
-        <h5 className='subtitle'>managing Instructor info</h5>
+        <h3 className='head'>Courses</h3>
+        <h5 className='subhead'>managing Course info</h5>
         <Box
         m="40px 0 0 0"
         height="75vh"
@@ -35,21 +36,21 @@ export const AdminReport = () => {
               borderBottom: "none",
             },
             "& .name-column--cell": {
-              color: colors.greenAccent[300],
+              color: colors.grey[200],
             },
             "& .MuiDataGrid-columnHeaders": {
-              backgroundColor: colors.blueAccent[700],
+              backgroundColor: colors.grey[100],
               borderBottom: "none",
             },
             "& .MuiDataGrid-virtualScroller": {
-              backgroundColor: colors.primary[400],
+              backgroundColor: colors.grey[100],
             },
             "& .MuiDataGrid-footerContainer": {
               borderTop: "none",
-              backgroundColor: colors.blueAccent[700],
+              backgroundColor: colors.grey[100],
             },
             "& .MuiCheckbox-root": {
-              color: `${colors.greenAccent[200]} !important`,
+              color: `${colors.grey[100]} !important`,
             },
             "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
               color: `${colors.grey[100]} !important`,
@@ -67,4 +68,5 @@ export const AdminReport = () => {
     </div>
     </>
   )
+
 }

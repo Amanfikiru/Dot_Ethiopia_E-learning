@@ -7,6 +7,7 @@ import {
   BarChart,
   MailOutline,
   DynamicFeed,
+  AttachFile,
   ChatBubbleOutline,
 
 } from "@material-ui/icons";
@@ -56,9 +57,27 @@ export default function Sidebar() {
             </Link>
             
             <li className="adminsidebarListItem">
-              <BarChart className="adminsidebarIcon" />
+              <AttachFile className="adminsidebarIcon" />
               certificate
             </li>
+          </ul>
+        </div>
+        <div className="adminsidebarMenu">
+          <h3 className="adminsidebarTitle">Report</h3>
+          <ul className="adminsidebarList">
+            <Link to="/admin/student/report" className="link">
+              <li className="adminsidebarListItem">
+                <BarChart className="adminsidebarIcon" />
+                Student Report
+              </li>
+            </Link>
+            <Link to="/admin/course/report" className="link">
+              <li className="adminsidebarListItem">
+                <BarChart className="adminsidebarIcon" />
+                Course Report
+              </li>
+            </Link>
+            
           </ul>
         </div>
         <div className="adminsidebarMenu">

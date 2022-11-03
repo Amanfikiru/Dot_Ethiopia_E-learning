@@ -2,3 +2,33 @@
     flex: 4;
     padding: 20px;
 }
+.containerb{
+    display: flex;
+    justify-content: center;
+}
+.title{
+    font-size: 50px;
+    position: center;
+    margin-left: 420px;
+}
+.subtitle{
+    font-size: 20px;
+    color: orange;
+    margin-bottom: 10px;
+    margin-left: 350px;
+}
+.coloringbutton{
+    background-color: rgb(0, 0, 0);
+    color: orange;
+    cursor: pointer;
+    border: none;
+    border-radius: 5%;
+    margin-right: 20px;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+}
+.coloringbutton:hover{
+    background-color: orange;
+    color: white;
+}
