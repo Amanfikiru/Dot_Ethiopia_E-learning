@@ -1,27 +1,56 @@
 import { Publish,} from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./newCourse.css";
 
 
+
+
 export default function NewCourse() {
-  const [courseTitle, setCourseTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [totalEnrolled, setTotalEnrolled] = useState('');
-  const postData = () => {
-    axios.post(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData`, {
-            courseTitle,
-            description,
-            totalEnrolled
-        })
-      }
+  const navigate = useNavigate();
+  const [courseTitle, setCourseTitle] = useState("");
+  const [description, setDescription] = useState("");
+  // const [totalEnrolled, setTotalEnrolled] = useState('');
+
+  const addCourse = async () =>{
+    await axios({
+    method:"post",
+    url:"http://localhost:8000/api/courses",
+    headers:{
+          "Content-type" : "application/json",
+      },
+    data : 
+      { title:courseTitle, description:description }
+    
+  })
+};
+
+
+
+const refreshPage = () => {
+    navigate(0);
+}
+
+
+  const postData = (e) => {
+    e.preventDefault();
+    // console.log(courseTitle);
+    // console.log(description);
+    // http.post('/courses',{ title:courseTitle, description:description })
+    addCourse()
+    // refreshPage()
+    setCourseTitle("")
+    setDescription("")
+  }
+
+    
   return (
     
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Add Course</h1>
-        <Link to="/newUser">
+        <Link to="/newmodule">
           <button className="userAddButton">Add Modules</button>
         </Link>
       </div>
@@ -32,6 +61,7 @@ export default function NewCourse() {
               <div className="userUpdateItem">
                 <label>Course Title </label>
                 <input
+                  value={courseTitle}
                   type="text"
                   placeholder="CourseTitle"
                   onChange={(e) => setCourseTitle(e.target.value)}
@@ -41,13 +71,13 @@ export default function NewCourse() {
               </div>
               <div className="userUpdateItem">
                 <label>Description</label>
-                <textarea id="w" rows="4" cols="50"onChange={(e) => setDescription(e.target.value)}>
+                <textarea value={description} id="w" rows="4"  cols="50"onChange={(e) => setDescription(e.target.value)}>
 
                 </textarea>
                 
                   
               </div>
-              <div className="userUpdateItem">
+              {/* <div className="userUpdateItem">
                 <label>Total Enrolled</label>
                 <input
                   type="text"
@@ -55,7 +85,7 @@ export default function NewCourse() {
                   className="userUpdateInput"
                   onChange={(e) => setTotalEnrolled(e.target.value)}
                 />
-              </div>
+              </div> */}
              
             </div>
             <div className="userUpdateRight">
@@ -68,9 +98,9 @@ export default function NewCourse() {
                 <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
                 </label>
-                <input type="file" id="file" style={{ display: "none" }} />
+                <input type="file" id="file" style={{ display: "none" }} /> 
               </div>
-              <button className="userUpdateButton" onClick={postData}>Add</button>
+              <button className="userUpdateButton" onClick={(e)=>postData(e)}>Add</button>
             </div>
           </form>
         </div>

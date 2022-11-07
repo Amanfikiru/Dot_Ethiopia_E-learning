@@ -2,10 +2,11 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CourseList from "./pages/courseList/CourseList";
 import NewCourse from "./pages/newCourse/NewCourse";
 import {CourseUpdateu} from "./pages/courseUpdate/CourseUpdateu";
+import AddModules from "./pages/addModules/AddModules";
 
 
 function App() {
@@ -14,21 +15,25 @@ function App() {
       <Topbar />
       <div className="container">
         <Sidebar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/courses">
-            <CourseList />
-          </Route>
-          <Route path="/newCourse">
-            <NewCourse />
-          </Route>
-          <Route path="/courseEdit">
-            <CourseUpdateu />
-          </Route>
+        <Routes>
+          <Route exact path="/"
+            element={<Home /> } 
+            />
+          <Route path="/courses"
+            element={<CourseList /> } 
+            />
           
-        </Switch>
+          <Route path="/newCourse"
+           element={<NewCourse />} 
+           />
+         
+          <Route path="/courseEdit/*"
+            element={<CourseUpdateu /> }
+          />
+           <Route path="/newmodule"
+            element={<AddModules /> }
+          /> 
+        </Routes>
       </div>
     </Router>
   );
