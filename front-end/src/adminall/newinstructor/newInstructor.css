@@ -38,6 +38,7 @@
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     margin-left: 20px;
+    background-color: rgb(231, 228, 225);
   }
   
   .InstructorShowTop {
@@ -109,7 +110,7 @@
   }
   
   .InstructorUpdateItem>label{
-      margin-bottom: 5px;
+      margin: 10px;
       font-size: 14px;
   }
   
@@ -119,15 +120,15 @@
       width: 250px;
       height: 30px;
       border-bottom: 1px solid gray;
+      margin: 10px;
   }
   
-  .InstructorUpdateRight{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+  .InstructorUpdateLeft{
+      padding-left: 20px;
   }
   
   .InstructorUpdateUpload{
+      margin-top: 10px;
       display: flex;
       align-items: center;
   }
@@ -160,4 +161,43 @@
   .makeflex{
     display: flex;
     margin-right: 20px;
+    margin-top: 10px;
+  }
+
+  .dropdown{
+    width: 150px;
+    height: 20px;
+    font-size: 15px;
+    justify-content: center;
+    box-sizing: 20px;
+    margin: 0 20px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .dropdownoption{
+    background-color: rgb(175, 171, 171);
+  }
+
+  .dropdownoption>option:hover{
+    background-color: orange;
+    color: rgb(219, 215, 215);
+  }
+
+  .dropdownlable{
+    margin-left: 10px;
+    padding-left: 15px;
+    font-size: small;
+  }
+
+  .birthday{
+    display: block;
+    margin-left: 20px;
+  }
+
+  .makeblock{
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    margin-right: 90px;
   }

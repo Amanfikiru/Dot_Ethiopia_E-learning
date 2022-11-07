@@ -53,7 +53,7 @@ export const AdminCourseReport = () => {
               color: `${colors.grey[100]} !important`,
             },
             "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-              color: `${colors.grey[100]} !important`,
+              color: `${colors.grey[200]} !important`,
             },
           }}
         >
