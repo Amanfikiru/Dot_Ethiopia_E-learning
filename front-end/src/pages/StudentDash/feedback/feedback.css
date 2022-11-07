@@ -1,0 +1,43 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+input {
+    border: 2px solid orange;
+
+}
+
+.close-btn {
+    position: absolute;
+    bottom: 0;
+    right: 50;
+}
+
+.btn {
+    color: black;
+
+}
+
+.h1 {
+    color: black;
+    text-align: right;
+}
+
+.feedback {
+    border: 3px solid black;
+    padding: 6rem;
+    background: orange;
+    border-radius: 7px;
+    position: relative;
+}
+
+.close-btn-form {
+    border: 0;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+
+}
