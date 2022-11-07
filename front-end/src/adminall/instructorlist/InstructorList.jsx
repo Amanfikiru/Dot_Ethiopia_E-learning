@@ -1,68 +1,112 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import "./instructorList.css";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline,  } from "@material-ui/icons";
-import { useState } from "react";
-import { instructorRows } from "../../dummyData";
+//import { instructorRows } from "../../dummyData";
+import axios from 'axios';
 
 
 
-export const InstructorList = () => {
-    const [data, setData] = useState(instructorRows);
-    const handleDelete = (id) => {
-        setData(data.filter((item) => item.id !== id));
-    };
+export const InstructorList = () => {    
+
+    const[instlists, setInstlists] = useState([]);
+    useEffect(() =>{
+        axios.get("").then((response)=>{
+        setInstlists(response)
+        console.log(response)});
+    }, []);
+
+    const rows = [
+        {
+            id: instlists.id,
+            firstname: instlists.firstname,
+            lastname: instlists.lastname,
+            grandfathername: instlists.grandfathername,
+            gender: instlists.gender,
+            level_of_study: instlists.level_of_study,
+            field_of_study: instlists.field_of_study,
+            address: instlists.address,
+            country: instlists.country,
+            city: instlists.city,
+            area_of_expertise: instlists.area_of_expertise,
+            description: instlists.description,
+            email: instlists.email,
+          }
+        
+    ]
+    
     
     
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
         {
-        field: "profile",
-        headerName: "profile",
+        field: "username",
+        headerName: "UserName",
         width: 200,
-        renderCell: (params) => {
-            return (
-            <div className="instructorListUser">
-                <img className="instructorListImg" src={params.row.avatar} alt="" />
-                {params.row.username}
-            </div>
-            );
-        },
         },
         { field: "email", headerName: "Email", width: 200 },
         {
-        field: "status",
-        headerName: "Status",
+        field: "gender",
+        headerName: "Gender",
         width: 120,
         },
         {
-        field: "lecturing",
-        headerName: "lecturing",
+        field: "level_of_study",
+        headerName: "Level of Study",
         width: 160,
         },
         {
-        field: "action",
-        headerName: "Action",
-        width: 150,
-        renderCell: (params) => {
-            return (
-            <>
-                <Link to={"/admin/instructor/edit/" + params.row.id}>
-                <button className="instructorListEdit">Edit</button>
-                </Link>
-                <DeleteOutline
-                className="instructorListDelete"
-                onClick={() => handleDelete(params.row.id)}
-                />
-            </>
-            );
+        field: "field_of_study",
+        headerName: "Field of Study",
+        width: 160,
         },
+        {
+        field: "address",
+        headerName: "Address",
+        width: 160,
+        },
+        {
+        field: "country",
+        headerName: "Country",
+        width: 160,
+        },
+        {
+        field: "city",
+        headerName: "City",
+        width: 150,
+        },
+        {
+        field: "area_of_expertise",
+        headerName: "Area of Expertise",
+        width: 150,
+        },
+        {
+        field: "description",
+        headerName: "Description",
+        width: 160,
+        },
+        {
+        field: "created_at",
+        headerName: "Created at",
+        width: 150,
+        },
+        {
+        field: "updated_at",
+        headerName: "Updated at",
+        width: 150,
         },
     ];
 
+    
+
+
     return (
         <>
+        <table>
+            <row>
+                {}
+            </row>
+        </table>
             <div className="instructorList">
                 
                 <Link to={"/admin/instructor/create"}>
@@ -71,7 +115,7 @@ export const InstructorList = () => {
                 </Link>                   
                 
                 <DataGrid
-                    rows={data}
+                    rows={rows}
                     disableSelectionOnClick
                     columns={columns}
                     pageSize={8}

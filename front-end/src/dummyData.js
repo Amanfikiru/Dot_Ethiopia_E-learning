@@ -1,3 +1,30 @@
+// import {useState, useEffect} from "React";
+// import axios from 'axios';
+
+
+//   export const instLists = () =>[
+//       const[instlists, setInstlists] = useState([]);
+//   useEffect(() =>{
+//     axios.get("").then((response)=>{
+//         setInstlists(response)
+//         console.log(response)});
+// }, []);
+//     {
+//       id: instLists.id,
+//       firstname: instLists.firstname,
+//       lastname: instLists.lastname,
+//       grandfathername: instLists.grandfathername,
+//       gender: instLists.gender,
+//       level_of_study: instLists.level_of_study,
+//       field_of_study: instLists.field_of_study,
+//       address: instLists.address,
+//       country: instLists.country,
+//       city: instLists.city,
+//       area_of_expertise: instLists.area_of_expertise,
+//       description: instLists.description,
+//       email: instLists.email,
+//     }
+//   ]
 export const userData = [
     {
       name: "Jan",
@@ -260,7 +287,9 @@ export const userData = [
       city: "Bahirdar",
     },
   ];
+  
   export const instructorRows = [
+
     {
       id: 1,
       username: "Amanuel Fikiru",
@@ -428,7 +457,6 @@ export const userData = [
     },
     
   ];
-
   export const userRows = [
     {
       id: 1,
