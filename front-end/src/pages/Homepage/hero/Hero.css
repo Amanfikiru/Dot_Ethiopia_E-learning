@@ -11,7 +11,7 @@
     height: 100vh;
     padding-top: 20%;
     padding-right: 50px;
-    color:black;
+    color:orange;
     
   }
   
@@ -19,7 +19,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 40px;
-    color: black;
+    color: orange;
     margin-top: 22px;
     font-style: italic;
     font-weight: bold;
@@ -32,7 +32,7 @@
   .row p{
      margin-top: 30px;
      font-family: 'Poppins', sans-serif;
-     font-weight: 500;
+     font-weight: 700;
      margin-bottom: 40px;
   }
   @media screen and (max-width: 768px) {
@@ -48,3 +48,4 @@
       width: 100%;
     }
   }
+ 

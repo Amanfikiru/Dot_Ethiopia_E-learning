@@ -12,7 +12,7 @@
   text-align: center;
   padding: 40px;
   color: white;
-  margin: auto auto 20px auto;
+  margin: auto  20px auto;
 }
 .OurCoursesInnerContainer{
   display: flex;
@@ -46,6 +46,7 @@
 .ourCoursesHeading:hover{
   background-color: orange;
   color: white;
+  
 }
 
 .exploreCourses{

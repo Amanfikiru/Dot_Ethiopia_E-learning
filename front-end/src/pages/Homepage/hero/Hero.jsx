@@ -19,7 +19,7 @@ const Hero = () => {
               are creating opportunities and transforming communities.
             </p>
              <div >
-                <Button color="orange" radius="md" size="xl">
+                <Button color="orange" radius="md" size="xl" fullWidth="10">
                   Get Started Now <i className="fa fa-long-arrow-alt-right"></i>
                 </Button>
             </div> 
