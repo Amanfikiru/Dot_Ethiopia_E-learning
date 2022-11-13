@@ -32,6 +32,7 @@
 
 // export default MyCourses
 import React from "react";
+import Card from'./Coursecardui/card';
 
 const MyCourses = () => {
   return (
@@ -39,6 +40,7 @@ const MyCourses = () => {
       
       <h1 className="try"> this works or not </h1>
       <h2>god help me </h2>
+      <Card/>
       
     </>
   );
