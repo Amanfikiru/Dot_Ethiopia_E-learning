@@ -32,15 +32,15 @@
 
 // export default MyCourses
 import React from "react";
-import Card from'./Coursecardui/card';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import Card from'./Coursecardui/card';
+import Cards from './Coursecardui/cards';
+
 
 const MyCourses = () => {
   return (
     <>
-      
-      <h1 className="try"> this works or not </h1>
-      <h2>god help me </h2>
-      <Card/>
+      <Cards/>
       
     </>
   );

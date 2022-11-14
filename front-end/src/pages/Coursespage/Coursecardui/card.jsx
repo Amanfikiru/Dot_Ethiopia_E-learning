@@ -1,28 +1,29 @@
 import React from 'react';
-import startup from '../Coursecardui/startup.jpg';
+// import startup from '../Coursecardui/startup.jpg';
+// import reachup from '../Coursecardui/reachup.jpg';
+// import women from '../Coursecardui/women.jpg';
+import './card-style.css';
 
 const Card =props=>{
+
     return(
-      <div className="card text-center">
+
+      <div className="card text-center ">
 <div className="overflow">
-   <img src={startup} alt="startup" />
+
+   <img src={props.imgsrc} alt="startup" className='card-startup-top' />
    </div> 
    <div className="card-body text-dark">
       <h4 className="card-title">
-   Start-up 
+   {props.title}
          <p className="card-text-secondary">
-            Startups are young companies founded to develop a unique product or service, bring it to market and make
-             it irresistible and irreplaceable for customers
+           {props.p}
          </p>
-         <a href="#" className='btn btn-outline-success'>Enroll</a>
+         <a href="www.google.com" className='btn btn-outline-success'>Enroll</a>
       </h4>
 
 
    </div>
-    <h1> connected</h1>
-
-
-
  </div>
     );
 }
