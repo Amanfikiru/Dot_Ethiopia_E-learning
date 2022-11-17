@@ -8,6 +8,7 @@ import { Publish,} from "@material-ui/icons";
 export default function AddModules() {
   const [ModuleTitle, setModuletitle] = useState("");
   const [Notes, setNotes] = useState("");
+  const [videourl, setvideourl] = useState("");
   const addModule = async () =>{
     await axios({
     method:"post",
@@ -16,7 +17,7 @@ export default function AddModules() {
           "Content-type" : "application/json",
       },
     data : 
-      { name:ModuleTitle, notes:Notes, }
+      { name:ModuleTitle, notes:Notes,youtube_url:videourl }
     
   })
 };
@@ -28,7 +29,7 @@ const postData = (e) => {
   addModule()
   setModuletitle("")
   setNotes("")
-  
+  setvideourl("")
 }
 
     return(
@@ -65,9 +66,10 @@ const postData = (e) => {
                 <label>Video Url</label>
                 <input
                   type="text"
+                  value={videourl}
                   placeholder=""
                   className="userUpdateInput"
-                  //onChange={(e) => setTotalEnrolled(e.target.value)}
+                  onChange={(e) => setvideourl(e.target.value)}
                 />
               </div>
              
@@ -82,7 +84,12 @@ const postData = (e) => {
                 <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
                 </label>
-                <input type="file" id="file" style={{ display: "none" }} /> 
+                <input type="file" 
+                       id="file" 
+                       value={videourl}
+                       style={{ display: "none" }} 
+                       onChange={(e) => setNotes(e.target.value) }
+                /> 
               </div>
               <button className="userUpdateButton" 
               onClick={(e)=>postData(e)}

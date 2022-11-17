@@ -10,7 +10,7 @@ export default function NewCourse() {
   //const navigate = useNavigate();
   const [courseTitle, setCourseTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [by, setBy] = useState('');
+  // const [by, setBy] = useState('');
 
   const addCourse = async () =>{
     await axios({
@@ -33,20 +33,16 @@ export default function NewCourse() {
     addCourse()
     setCourseTitle("")
     setDescription("")
-    setBy("")
+   
   }
 
     
   return (
-    
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Add Course</h1>
-        
       </div>
-        <div className="userUpdate">
-          <span className="userUpdateTitle">Add</span>
-          <form className="userUpdateForm">
+      <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
                 <label>Course Title </label>
@@ -61,25 +57,28 @@ export default function NewCourse() {
               </div>
               <div className="userUpdateItem">
                 <label>Description</label>
-                <textarea value={description} id="w" rows="4"  cols="50" onChange={(e) => setDescription(e.target.value)}>
-                </textarea>    
+                <textarea value={description} id="w" rows="4"  cols="50"onChange={(e) => setDescription(e.target.value)}>
+
+                </textarea>
+                
+                  
               </div>
-              <div className="userUpdateItem">
-                <label>By:</label>
+              {/* <div className="userUpdateItem">
+                <label>Total Enrolled</label>
                 <input
                   type="text"
-                  placeholder=""
+                  placeholder="TotalEnrolled"
                   className="userUpdateInput"
-                  onChange={(e) => setBy(e.target.value)}
+                  onChange={(e) => setTotalEnrolled(e.target.value)}
                 />
-              </div>
+              </div> */}
              
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
                 <img
                   className="userUpdateImg"
-                  src=""
+                  src="https://images.pexels.com/photos/3358707/pexels-photo-3358707.png?cs=srgb&dl=pexels-rikka-ameboshi-3358707.jpg&fm=jpg&_gl=1*q69zqi*_ga*NzU2NTQ5NjYzLjE2NjY4OTYyMjQ.*_ga_8JE65Q40S6*MTY2Njg5NjIyNi4xLjEuMTY2Njg5NjI1MC4wLjAuMA."
                   alt=""
                 />
                 <label htmlFor="file">
@@ -91,7 +90,7 @@ export default function NewCourse() {
             </div>
           </form>
         </div>
-      </div>
+      
     
   );
 }
