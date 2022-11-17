@@ -7,7 +7,6 @@ import {
   AddToQueue,
   AttachFile,
   BarChart,
-  MailOutline,
   DynamicFeed,
   ChatBubbleOutline,
 

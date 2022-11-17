@@ -9,8 +9,7 @@ import {
   import { Link , useLocation} from "react-router-dom";
   import "./courseUpdate.css";
   import axios from 'axios';
-import { useState } from 'react';
-// import { useRef } from "react";
+
 
 export const CourseUpdateu = () => {
 
@@ -22,7 +21,7 @@ export const CourseUpdateu = () => {
 
   const inputTitle = useRef("");
   const inputDesc = useRef("")
-  const inputRolled = useRef(null)
+  // const inputRolled = useRef(null)
 
   const handleUpdateCourse = (event) =>{
     event.preventDefault();

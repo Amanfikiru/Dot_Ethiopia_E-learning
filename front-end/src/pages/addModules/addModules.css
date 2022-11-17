@@ -97,13 +97,13 @@
   }
   
   .userUpdateForm{
-      display: flex;
+      display: inline-block;
       justify-content: space-between;
       margin-top: 20px;
   }
   
   .userUpdateItem{
-      display: flex;
+      display:flex;
       flex-direction: column;
       margin-top: 10px;
   }

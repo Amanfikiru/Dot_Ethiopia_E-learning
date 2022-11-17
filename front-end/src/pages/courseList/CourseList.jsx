@@ -1,7 +1,11 @@
 import "./courseList.css";
 import CircularProgress from '@mui/material/CircularProgress';
-import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
+// import { DeleteOutline } from "@material-ui/icons";
+// import { userRows } from "../../dummyData";
+// import swal from 'sweetalert';
+import { IconTrash } from '@tabler/icons';
+import { IconPencil } from '@tabler/icons';
+import { IconVocabulary } from '@tabler/icons';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
@@ -14,7 +18,8 @@ export default function CourseList() {
   //console.log("Dummy" ,userRows)
 
   const handleDelete = (rowData) =>{
-    console.log("row",rowData)
+    // console.log("row",rowData)
+   
     deleteData(rowData.id)
   }
   
@@ -29,6 +34,7 @@ export default function CourseList() {
 
   const deleteData = async (id) =>{
     await axios.delete(`http://localhost:8000/api/courses/${id}`).then(data=>{
+      
       console.log("DELETE", data)
     })
   }
@@ -53,11 +59,11 @@ export default function CourseList() {
             aria-labelledby="tableTitle">
       <TableHead>
         <TableRow>
-          <TableCell variant="head" align="left">Number</TableCell>
-          <TableCell variant="head" align="left">Title</TableCell>
-          <TableCell variant="head" align="left">Description</TableCell>
-          <TableCell variant="head" align="left">Action</TableCell>
-         {/*  <TableCell variant="head" align="left">Delete</TableCell> */}
+          <TableCell  align="left" font-weight="bolder" font-size="large">Number</TableCell>
+          <TableCell  align="left"font-weight="bolder" font-size="large">Title</TableCell>
+          <TableCell  align="left" font-weight="bolder" font-size="large" >Description</TableCell>
+          <TableCell  align="left" width="300" font-weight="bolder" font-size="large" >Action</TableCell>
+         {/*<TableCell variant="head" align="left">Delete</TableCell> */}
         </TableRow>
       </TableHead>
       <TableBody>
@@ -69,19 +75,20 @@ export default function CourseList() {
             <TableCell component="th" scope="row">
               {index+1}
             </TableCell>
+            <Link to={"/modulelist/" + row.id}>
             <TableCell  align="left">{row.title}</TableCell>
+            </Link>
             <TableCell align="left">{row.description}</TableCell>
             <TableCell align="left" sx={{cursor:"pointer"}}>
               <Link to={"/courseEdit/" + row.id}> 
-              <button className="userListEdit">Edit</button>
-            </Link>
+              <button className="userListEdit"><IconPencil /></button>
+              </Link>
             
-            
-            
-            <DeleteOutline style={{cursor:"pointer"}}
-              // className="userListDelete"
-              onClick={() => handleDelete(row)}
-            />
+              <button className="userListDelete" onClick={() => handleDelete(row)}> <IconTrash />
+              </button>
+              <Link to="/newmodule">
+               <button className="userAddButton"> <IconVocabulary /> </button>
+              </Link>
             </TableCell>
            
           </TableRow>

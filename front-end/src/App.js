@@ -7,6 +7,7 @@ import CourseList from "./pages/courseList/CourseList";
 import NewCourse from "./pages/newCourse/NewCourse";
 import {CourseUpdateu} from "./pages/courseUpdate/CourseUpdateu";
 import AddModules from "./pages/addModules/AddModules";
+import ModuleList from "./pages/moduleList/ModuleList";
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           />
            <Route path="/newmodule"
             element={<AddModules /> }
+          />
+          <Route path="/modulelist/*"
+            element={<ModuleList /> }
           /> 
         </Routes>
       </div>

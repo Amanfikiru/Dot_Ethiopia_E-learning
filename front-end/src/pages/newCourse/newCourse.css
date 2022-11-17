@@ -53,7 +53,7 @@
 }
 
 .userShowTopTitle {
-  display: flex;
+  display: center;
   flex-direction: column;
   margin-left: 20px;
 }

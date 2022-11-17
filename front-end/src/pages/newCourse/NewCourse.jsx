@@ -1,5 +1,4 @@
-import { Publish,} from "@material-ui/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Publish} from "@material-ui/icons";
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./newCourse.css";
@@ -8,10 +7,10 @@ import "./newCourse.css";
 
 
 export default function NewCourse() {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [courseTitle, setCourseTitle] = useState("");
   const [description, setDescription] = useState("");
-  // const [totalEnrolled, setTotalEnrolled] = useState('');
+  const [by, setBy] = useState('');
 
   const addCourse = async () =>{
     await axios({
@@ -21,17 +20,10 @@ export default function NewCourse() {
           "Content-type" : "application/json",
       },
     data : 
-      { title:courseTitle, description:description }
+      { title:courseTitle, description:description, }
     
   })
 };
-
-
-
-const refreshPage = () => {
-    navigate(0);
-}
-
 
   const postData = (e) => {
     e.preventDefault();
@@ -39,9 +31,9 @@ const refreshPage = () => {
     // console.log(description);
     // http.post('/courses',{ title:courseTitle, description:description })
     addCourse()
-    // refreshPage()
     setCourseTitle("")
     setDescription("")
+    setBy("")
   }
 
     
@@ -50,9 +42,7 @@ const refreshPage = () => {
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Add Course</h1>
-        <Link to="/newmodule">
-          <button className="userAddButton">Add Modules</button>
-        </Link>
+        
       </div>
         <div className="userUpdate">
           <span className="userUpdateTitle">Add</span>
@@ -71,28 +61,25 @@ const refreshPage = () => {
               </div>
               <div className="userUpdateItem">
                 <label>Description</label>
-                <textarea value={description} id="w" rows="4"  cols="50"onChange={(e) => setDescription(e.target.value)}>
-
-                </textarea>
-                
-                  
+                <textarea value={description} id="w" rows="4"  cols="50" onChange={(e) => setDescription(e.target.value)}>
+                </textarea>    
               </div>
-              {/* <div className="userUpdateItem">
-                <label>Total Enrolled</label>
+              <div className="userUpdateItem">
+                <label>By:</label>
                 <input
                   type="text"
-                  placeholder="TotalEnrolled"
+                  placeholder=""
                   className="userUpdateInput"
-                  onChange={(e) => setTotalEnrolled(e.target.value)}
+                  onChange={(e) => setBy(e.target.value)}
                 />
-              </div> */}
+              </div>
              
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
                 <img
                   className="userUpdateImg"
-                  src="https://images.pexels.com/photos/3358707/pexels-photo-3358707.png?cs=srgb&dl=pexels-rikka-ameboshi-3358707.jpg&fm=jpg&_gl=1*q69zqi*_ga*NzU2NTQ5NjYzLjE2NjY4OTYyMjQ.*_ga_8JE65Q40S6*MTY2Njg5NjIyNi4xLjEuMTY2Njg5NjI1MC4wLjAuMA."
+                  src=""
                   alt=""
                 />
                 <label htmlFor="file">

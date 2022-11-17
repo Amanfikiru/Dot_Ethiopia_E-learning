@@ -1,12 +1,36 @@
-import { Link } from "react-router-dom";
+import "./addModules.css";
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./addModules.css";
 import { Publish,} from "@material-ui/icons";
 
 
 
 export default function AddModules() {
+  const [ModuleTitle, setModuletitle] = useState("");
+  const [Notes, setNotes] = useState("");
+  const addModule = async () =>{
+    await axios({
+    method:"post",
+    url:"http://localhost:8000/api/modules",
+    headers:{
+          "Content-type" : "application/json",
+      },
+    data : 
+      { name:ModuleTitle, notes:Notes, }
+    
+  })
+};
+const postData = (e) => {
+  e.preventDefault();
+  // console.log(courseTitle);
+  // console.log(description);
+  // http.post('/courses',{ title:courseTitle, description:description })
+  addModule()
+  setModuletitle("")
+  setNotes("")
+  
+}
+
     return(
     <div className="user">
       <div className="userTitleContainer">
@@ -17,10 +41,10 @@ export default function AddModules() {
               <div className="userUpdateItem">
                 <label>Module Title </label>
                 <input
-                 // value={courseTitle}
+                  value={ModuleTitle}
                   type="text"
                   placeholder="Moduletitle"
-                 // onChange={(e) => setCourseTitle(e.target.value)}
+                 onChange={(e) => setModuletitle(e.target.value)}
                   className="userUpdateInput"
                  
                 />
@@ -28,9 +52,9 @@ export default function AddModules() {
               <div className="userUpdateItem">
                 <label>Notes</label>
                 <textarea 
-               // value={description} 
+               value={Notes} 
                 id="w" rows="4"  cols="50"
-                //</div>onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => setNotes(e.target.value)}
                 >
 
                 </textarea>
@@ -61,7 +85,7 @@ export default function AddModules() {
                 <input type="file" id="file" style={{ display: "none" }} /> 
               </div>
               <button className="userUpdateButton" 
-              //onClick={(e)=>postData(e)}
+              onClick={(e)=>postData(e)}
               >Add</button>
             </div>
           </form>
