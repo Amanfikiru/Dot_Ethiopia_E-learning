@@ -6,6 +6,7 @@ import "./reports.css";
 import { tokens } from "../../../Theme";
 import { useTheme } from "@mui/material";
 export const AdminReport = () => {
+    
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const columns = [

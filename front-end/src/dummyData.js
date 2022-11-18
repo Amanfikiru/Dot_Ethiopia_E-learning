@@ -198,17 +198,17 @@ export const userData = [
     },
     {
       id: 3,
-      name: "Getachw erda",
+      name: "Getachw mekuwanint",
       email: "jereda@gmail.com",
       age: 45,
       gender: "male",
       phone: "(251)915-998-019",
-      address: "semeatat str, mekele, ethiopia",
-      city: "Mekele",
+      address: "semeatat str, bahirdar, ethiopia",
+      city: "bahirdar",
     },
     {
       id: 4,
-      name: "Abyi Ahmed",
+      name: "Abyi bedada",
       email: "Ahmed@gmail.com",
       age: 48,
       gender: "male",
@@ -238,7 +238,7 @@ export const userData = [
     },
     {
       id: 7,
-      name: "Meseret Defar",
+      name: "Meseret degefu",
       email: "mesi@gmail.com",
       age: 44,
       gender: "female",
@@ -258,7 +258,7 @@ export const userData = [
     },
     {
       id: 9,
-      name: "manyazewal eshetu",
+      name: "manyazewal haile",
       email: "mane@gmail.com",
       age: 31,
       gender: "male",
@@ -286,7 +286,252 @@ export const userData = [
       address: "Bahirdar, ethiopia",
       city: "Bahirdar",
     },
+    {
+      id: 12,
+      name: "Abenezer Debebe",
+      email: "abenidebe@gmail.com",
+      age: 23,
+      gender: "male",
+      phone: "(251)915-998-019",
+      address: "angola str, addis ababa, ethiopia",
+      city: "Addis ababa",
+    },
+    {
+      id: 13,
+      name: "Natnael Yirga",
+      email: "natiyerga@gmail.com",
+      age: 25,
+      gender: "male",
+      phone: "(251)915-998-019",
+      address: "angola str, addis ababa, ethiopia",
+      city: "Addis Ababa",
+    },
+    {
+      id: 14,
+      name: "Petros G/hiwot",
+      email: "peter@gmail.com",
+      age: 45,
+      gender: "male",
+      phone: "(251)915-998-019",
+      address: "semeatat str, mekele, ethiopia",
+      city: "Mekele",
+    },
+    {
+      id: 15,
+      name: "Meseret Tesfaye",
+      email: "mesi@gmail.com",
+      age: 48,
+      gender: "Female",
+      phone: "(921)425-6742",
+      address: "adama, ethiopia",
+      city: "adama",
+    },
+    {
+      id: 16,
+      name: "Hiwot tarekegh",
+      email: "hiwi@gmail.com",
+      age: 31,
+      gender: "female",
+      phone: "(421)445-1189",
+      address: "Hawassa, ethiopia",
+      city: "Hawassa",
+    },
+    {
+      id: 17,
+      name: "Selam Waka",
+      email: "selamwaka112@gmail.com",
+      age: 50,
+      gender: "female",
+      phone: "(232)545-6483",
+      address: "adama, ethiopia",
+      city: "adama",
+    },
+    {
+      id: 18,
+      name: "Alemnesh Danga",
+      email: "alemdanga@gmail.com",
+      age: 44,
+      gender: "female",
+      phone: "(543)124-0123",
+      address: "Hawassa, ethiopia",
+      city: "Hawassa",
+    },
+    {
+      id: 19,
+      name: "Merhawit Haftom",
+      email: "merhawithaftom@gmail.com",
+      age: 36,
+      gender: "female",
+      phone: "(222)444-5555",
+      address: "mekele, ethiopa",
+      city: "mekele",
+    },
+    {
+      id: 20,
+      name: "danel eshetu",
+      email: "dani@gmail.com",
+      age: 31,
+      gender: "male",
+      phone: "+2519 545 3215",
+      address: "Arba minch, ethiopia",
+      city: "Arba minch",
+    },
+    {
+      id: 21,
+      name: "kawser wako",
+      email: "kawsi343@gmail.com",
+      age: 42,
+      gender: "female",
+      phone: "+251 945 954 954",
+      address: "arab minch, ethiopia",
+      city: "Arba minch",
+    },
+    {
+      id: 22,
+      name: "Mekonnen Admasu",
+      email: "moke@gmail.com",
+      age: 19,
+      gender: "male",
+      phone: "+251 915 99 8019",
+      address: "Bahirdar, ethiopia",
+      city: "Bahirdar",
+    },
   ];
+  export const CourseStudentInfo = [
+    {
+      id: 1, 
+      studentid: 12,
+      courseid: 5,
+      completed: "completed",
+      dateofcompletion: "10/06/2022",
+    },
+    {
+      id: 2,
+      studentid: 8,
+      courseid: 4,
+      completed: "not completed",
+      dateofcompletion: null,
+    },
+    {
+      id: 3, 
+      studentid: 11,
+      courseid: 3,
+      completed: "completed",
+      dateofcompletion: "9/06/2022"
+    },
+    {
+      id: 4, 
+      studentid: 12,
+      courseid: 1,
+      completed: "completed",
+      dateofcompletion: "10/08/2022"
+    },
+    {
+      id: 5, 
+      studentid: 21,
+      courseid: 5,
+      completed: "completed",
+      dateofcompletion: "08/08/2022"
+    },
+    {
+      id: 6,
+      studentid: 5,
+      courseid: 2,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 7,
+      studentid: 18,
+      courseid: 4,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 8,
+      studentid: 13,
+      courseid: 4,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 9,
+      studentid: 17,
+      courseid: 4,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 10,
+      studentid: 12,
+      courseid: 3,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 11,
+      studentid: 20,
+      courseid: 1,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 12,
+      studentid: 3,
+      courseid: 3,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 13,
+      studentid: 10,
+      courseid: 5,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 14,
+      studentid: 18,
+      courseid: 2,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 15,
+      studentid: 15,
+      courseid: 3,
+      completed: "not completed",
+      dateofcompletion: null
+    },
+    {
+      id: 16,
+      studentid: 2,
+      courseid: 3,
+      completed: "completed",
+      dateofcompletion: "07/09/2022"
+    },
+    {
+      id: 17,
+      studentid: 13,
+      courseid: 2,
+      completed: "completed",
+      dateofcompletion: "06/22/2022"
+    },
+    {
+      id: 18,
+      studentid: 2,
+      courseid: 5,
+      completed: "completed",
+      dateofcompletion: "07/19/2022"
+    },
+    {
+      id: 19,
+      studentid: 7,
+      courseid: 1,
+      completed: "completed",
+      dateofcompletion: "06/24/2022"
+    }
+  ]
   
   export const instructorRows = [
 

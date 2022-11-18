@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
     CalendarToday,
     LocationSearching,
@@ -7,11 +7,55 @@ import {
     PhoneAndroid,
     Publish,
   } from "@material-ui/icons";
-  import { Link } from "react-router-dom";
+  import axios from "axios";
+  import { Link, useLocation } from "react-router-dom";
   import "./instructorEdit.css";
 
 
 export const InstructorEdit = () => {
+  const location = useLocation()
+  console.log("LOCATION", location.pathname.split("/").pop())
+  const instructorid = location.pathname.split("/").pop()
+  const inputFname = useRef("");
+  const inputLname = useRef("");
+  const inputEmail = useRef("");
+  const inputLevel = useRef("");
+  const inputExpert = useRef("");
+  const inputAddress = useRef("");
+  const inputCity = useRef("");
+  const inputCountry = useRef("");
+  const inputDesc = useRef("")
+  
+  const handleUpdateinstructor = (event) =>{
+    event.preventDefault();
+    editinstructor()
+  }
+  const editinstructor = async () =>{
+    await axios({
+      method:"put",
+      url:`http://localhost:8000/api/instructor/${instructorid}`,
+      headers:{
+            "Content-type" : "application/json",
+        },
+      data : 
+        { firstname:inputFname.current.value, lastname:inputLname.current.value, email:inputEmail.current.value,
+          level_of_study:inputLevel.current.value, area_of_expertise:inputExpert.current.value ,
+          address:inputAddress.current.value, city:inputCity.current.value, country:inputCountry.current.value ,
+          description:inputDesc.current.value  
+        }
+    }) 
+    // inputFname.current.value = ""
+    // inputLname.current.value=""
+    // inputEmail.current.value=""
+    // inputLevel.current.value=""
+    // inputExpert.current.value=""
+    // inputAddress.current.value = ""
+    // inputCity.current.value=""
+    // inputCountry.current.value=""
+    // inputDesc.current.value = ""
+  }
+  console.log("inst", inputFname);
+
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -60,47 +104,83 @@ export const InstructorEdit = () => {
         </div>
         <div className="userUpdate">
           <span className="userUpdateTitle">Edit</span>
-          <form className="userUpdateForm">
+          <form className="userUpdateForm" onSubmit={handleUpdateinstructor}>
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
-                <label>Username</label>
+                <label>First Name</label>
                 <input
+                  ref={inputFname}
                   type="text"
-                  placeholder="annabeck99"
+                  placeholder={inputFname}
                   className="userUpdateInput"
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Full Name</label>
+                <label>Last Name</label>
                 <input
+                  ref={inputLname}
                   type="text"
-                  placeholder="Anna Becker"
+                  placeholder={inputLname}
                   className="userUpdateInput"
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Email</label>
                 <input
-                  type="text"
-                  placeholder="annabeck99@gmail.com"
+                  ref={inputEmail}
+                  type="email"
+                  placeholder={inputEmail}
                   className="userUpdateInput"
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Phone</label>
+                <label>Level of study</label>
                 <input
+                  ref={inputLevel}
                   type="text"
-                  placeholder="+1 123 456 67"
+                  placeholder={inputLevel}
                   className="userUpdateInput"
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Address</label>
                 <input
+                  ref={inputAddress}
                   type="text"
-                  placeholder="New York | USA"
+                  placeholder={inputAddress}
                   className="userUpdateInput"
                 />
+              </div>
+              <div className="userUpdateItem">
+                <label>country</label>
+                <input
+                  ref={inputCountry}
+                  type="text"
+                  placeholder={inputCountry}
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>city</label>
+                <input
+                  ref={inputCity}
+                  type="text"
+                  placeholder={inputCity}
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Area of Expertise</label>
+                <input
+                  ref={inputExpert}
+                  type="text"
+                  placeholder={inputExpert}
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Description</label>
+                <textarea ref={inputDesc} id="w" rows="4" cols="50"></textarea>
               </div>
             </div>
             <div className="userUpdateRight">

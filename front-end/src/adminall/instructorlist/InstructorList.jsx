@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import "./instructorList.css";
 import { Link } from "react-router-dom";
 import { DeleteOutline } from "@material-ui/icons";
-import { DataGrid } from "@material-ui/data-grid";
-//import { instructorRows } from "../../dummyData";
+import { Table, TableBody, TableRow, TableContainer, TableHead,TableCell , Paper} from "@material-ui/core"; 
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 
 
@@ -14,53 +14,25 @@ export const InstructorList = () => {
         console.log("row",rowData)
         deleteData(rowData.id)
       }  
+     
       const deleteData = async (id) =>{
-        await axios.delete(`http://localhost:8000/api/courses/${id}`).then(data=>{
+        await axios.delete(`http://localhost:8000/api/instructordelete/${id}`).then(data=>{
           console.log("DELETE", data)
         })
       }
-    const[instlists, setInstlists] = useState([]);
-   
+    
+    const [APIData, setAPIData] = useState([])
+    const fetchdata = async () =>{
+        axios.get("http://localhost:8000/api/instructors").then(res => {
+          setAPIData(res.data)
+          console.log("AXIOS" ,res)
+        })
+      }
     useEffect(() =>{
-        axios.get("http://127.0.0.1:8000/api/instructors")
-            .then((data)=> 
-            {
-                setInstlists(data.data.data)
-            }) 
+       fetchdata();
     }, [])
     
-    const columns = [
-        { field: "id", headerName: "ID", width: 90 },
-        { field: "firstname",  headerName: "First Name", width: 200,},
-        { field: "lastname", headerName: "First Name", width: 200, },
-        { field: "grandfathername", headerName: "First Name", width: 200, },
-        { field: "email", headerName: "Email", width: 200 },
-        { field: "gender", headerName: "Gender", width: 120,},
-        { field: "level_of_study", headerName: "Level of Study", width: 160,},
-        { field: "field_of_study", headerName: "Field of Study", width: 160, },
-        { field: "address", headerName: "Address", width: 160,},
-        { field: "country", headerName: "Country", width: 160,},
-        { field: "city", headerName: "City", width: 150, },
-        { field: "area_of_expertise", headerName: "Area of Expertise",  width: 150, },
-        { field: "description", headerName: "Description", width: 160,},
-        { field: "created_at", headerName: "Created at", width: 150, },
-        { field: "updated_at", headerName: "Updated at", width: 150,},
-        {field: "Action", headerName: "Action",width:120,
-        renderCell: (params) => {
-             return(
-                <>
-                    <Link to={"/admin/instructor/edit/" + instlists.id }> 
-                    <button className="userListEdit">Edit</button>
-                    </Link>
-                
-                    <DeleteOutline style={{cursor:"pointer"}}
-                        
-                        onClick={() => handleDelete()}/>
-                </>
-            )
-        }}
-    ];
-
+   
     return (
         <>
         <div className="instructorList">
@@ -70,14 +42,71 @@ export const InstructorList = () => {
                     Create New<i className='fa fa-arrows-alt-right'/></button>
             </Link>                   
             
-            <DataGrid
-                rows={instlists}
-                disableSelectionOnClick
-                columns={columns}
-                pageSize={100}
-                checkboxSelection
+            <div className="tableContainer">
+    {APIData.length === 0 ? 
+    <CircularProgress/>
+    :
+    <TableContainer             
+    sx={{ minWidth: 350 }}
+    component={Paper}>
+    <Table stickyHeader 
+            aria-labelledby="tableTitle">
+      <TableHead>
+        <TableRow>
+          <TableCell variant="head" align="left">Number</TableCell>
+          <TableCell variant="head" align="left">Name</TableCell>
+          <TableCell variant="head" align="left">Email</TableCell>
+          <TableCell variant="head" align="left">Gender</TableCell>
+          <TableCell variant="head" align="left">Level of Study</TableCell>
+          <TableCell variant="head" align="left">Field of Study</TableCell>
+          <TableCell variant="head" align="left">Address</TableCell>
+          <TableCell variant="head" align="left">Country</TableCell>
+          <TableCell variant="head" align="left">City</TableCell>
+          <TableCell variant="head" align="left">Area of Expertise</TableCell>
+          <TableCell variant="head" align="left">Description</TableCell>
+          <TableCell variant="head" align="left">Action</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {APIData.data.map((row, index) => (
+          <TableRow
+            key={row.id}
+            sx={{ border: 2, text:'center' } }
+          >
+            <TableCell component="th" scope="row">
+              {index+1}
+            </TableCell>
+            <TableCell align="left">{row.firstname +' '+ row.lastname}</TableCell>
+            <TableCell  align="left">{row.email}</TableCell>
+            <TableCell align="left">{row.gender}</TableCell>
+            <TableCell  align="left">{row.Level_of_study}</TableCell>
+            <TableCell align="left">{row.field_of_study}</TableCell>
+            <TableCell  align="left">{row.address}</TableCell>
+            <TableCell align="left">{row.country}</TableCell>
+            <TableCell  align="left">{row.city}</TableCell>
+            <TableCell  align="left">{row.area_of_expertise}</TableCell>
+            <TableCell align="left">{row.description}</TableCell>
+            <TableCell align="left" sx={{cursor:"pointer"}}>
+              <Link to={"/admin/instructor/edit/" + row.id}> 
+              <button className="userListEdit">Edit</button>
+            </Link>
+            
+            
+            
+            <DeleteOutline style={{cursor:"pointer"}}
+              // className="userListDelete"
+              onClick={() => handleDelete(row)}
             />
-        
+            </TableCell>
+           
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+
+  }
+    </div>
         </div>  
         </>
     );

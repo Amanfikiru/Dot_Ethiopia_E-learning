@@ -6,30 +6,6 @@ import axios from "axios"
 
 export const NewInstructor = () => { 
   
-  // const [image, setimage] = useState([''])
-  // function fileSelected(e) {
-  //   console.log(e.target.files)
-  //   setimage(e.target.files[0])
-  // }
-  // function handleApi(){
-  //   const formdata = new FormData()
-  //   formdata.append('image', image)
-  //   formdata.append('first name', document.getElementById('firstname').value);
-  //   formdata.append('Last name', document.getElementById('lastname').value);
-  //   formdata.append('email', document.getElementById('email').value);
-  //   formdata.append('date of birth', document.getElementById('dateofbirth').value);
-  //   formdata.append('password', document.getElementById('password').value);
-  //   formdata.append('confirm password', document.getElementById('confirmpassword').value);
-  //   formdata.append('phone number', document.getElementById('phonenumber').value);
-  //   formdata.append('Gender', document.getElementById('gender').value);
-  //   formdata.append('Level of Study', document.getElementById('levelofstudy').value);
-  //   formdata.append('Field of Study', document.getElementById('fieldofstudy').value);
-  //   formdata.append('Address', document.getElementById('address').value);
-  //   formdata.append('Country', document.getElementById('country').value);
-  //   formdata.append('City', document.getElementById('city').value);
-  //   formdata.append('Lecturing', document.getElementById('lecturing').value);
-  //   axios.post("http://localhost:8000/api/instructorregister",formdata)
-  // }
 
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -37,7 +13,6 @@ export const NewInstructor = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
-  const [phonenumber, setPhoneNumber] = useState("");
   const [expertise, setExpertise] = useState("");
   const [fieldofstudy, setFieldofStudy] = useState("");
   const [levelofstudy, setLevelofStudy] = useState("");
@@ -49,7 +24,7 @@ export const NewInstructor = () => {
   const addInstructor = async () =>{
     await axios({
     method:"post",
-    url:"http://localhost:8000/api/courses",
+    url:"http://localhost:8000/api/instructorregister",
     headers:{
           "Content-type" : "application/json",
       },
@@ -64,15 +39,7 @@ export const NewInstructor = () => {
     e.preventDefault();
     
     addInstructor()
-    // refreshPage()
-    // setFirstName("") 
-    // setLastName("") 
-    // setGrandFatherName("") 
-    // setEmail("") 
-    // setPassword("") 
-    // setAge("") setPhoneNumber("")
-    // setExpertise("") setFieldofStudy("") setListofStudy("") setAddress("") setCountry("") setCity("")
-    // setDescription("")
+    
   }
   return (
     <div className="Instructor">
@@ -119,8 +86,8 @@ export const NewInstructor = () => {
               onChange={(e) => setEmail(e.target.value)}
               id='email'
               />
-            <div className="makeblock">
-              <lable htmlFor="birthday" className='dropdownlable'>Date of Birth</lable>
+            {/* <div className="makeblock">
+              <label htmlFor="birthday" className='dropdownlabel'>Date of Birth</label>
               <input
                 name='birthday'
                 type="date"
@@ -128,7 +95,7 @@ export const NewInstructor = () => {
                 className='birthday'
                 id='dateofbirth'
                 />
-            </div>
+            </div> */}
           </div>
 
           <div className="makeflex">
@@ -146,19 +113,19 @@ export const NewInstructor = () => {
               className="InstructorUpdateInput"
               id='confirmpassword'
               />
-            <input
+            {/* <input
               value={phonenumber}
               type="text"
               placeholder="Phone Number"
               className="InstructorUpdateInput"
               onChange={(e) => setPhoneNumber(e.target.value)}
               id='phonenumber'
-              />
+              /> */}
           </div>
 
           <div className="makeflex">
             <div className="makeblock">
-                <lable htmlFor="gender" className='dropdownlable'>Gender</lable>
+                <label htmlFor="gender" className='dropdownlabel'>Gender</label>
                 <select
                   value={gender}
                   name= "gender"
@@ -171,7 +138,7 @@ export const NewInstructor = () => {
               </div>
 
                 <div className="makeblock">
-                  <lable htmlFor="level of study" className='dropdownlable'>Level of study</lable>
+                  <label htmlFor="level of study" className='dropdownlabel'>Level of study</label>
                   <select
                     value={levelofstudy}
                     name= "level of study"
@@ -187,7 +154,7 @@ export const NewInstructor = () => {
                   </select>
                 </div>
                 <div className="makeblock">
-                  <lable htmlFor="field of study" className='dropdownlable'>Field of study</lable>
+                  <label htmlFor="field of study" className='dropdownlabel'>Field of study</label>
                   <select
                     value={fieldofstudy}
                     name= "field of study"
@@ -249,10 +216,10 @@ export const NewInstructor = () => {
                 
             </div>
             
-            <div className="InstructorUpdateUpload">
+            {/* <div className="InstructorUpdateUpload">
               
-              {<input type="file" id="file" /* onChange={fileSelected} *//>}
-            </div>
+              <input type="file" id="file"  onChange={fileSelected} />
+            </div> */}
           </div>
         </form>
         <Link to="/admin/instructor/list">

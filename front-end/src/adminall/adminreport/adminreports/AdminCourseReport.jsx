@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box} from '@material-ui/core';
 import { DataGrid, GridToolbar } from '@material-ui/data-grid';
-import {Studentinfo} from "../../../dummyData.js";
+import {CourseStudentInfo} from "../../../dummyData.js";
 import "./reports.css";
 import { tokens } from "../../../Theme";
 import { useTheme } from "@mui/material";
@@ -11,12 +11,10 @@ export const AdminCourseReport = () => {
     const colors = tokens(theme.palette.mode);
     const columns = [
         {field: "id", headerName: "ID"},
-        {field: "name",headerName: "name",width: 200,cellClassName: "name-column--cell"},
-        { field: "email", headerName: "Email", width: 200 },
-        { field: "gender", headerName: "Gender", width: 120 },
-        { field: "city", headerName: "City", width: 200 },
-        { field: "address", headerName: "Address", width: 200 },
-        { field: "created_at", headerName: "Created at", type: "date", width: 200 },
+        {field: "studentid",headerName: "Student Id",width: 200,cellClassName: "name-column--cell"},
+        { field: "courseid", headerName: "Course Id", width: 200 },
+        { field: "completed", headerName: "Completed", width: 120 },
+        { field: "dateofcompletion", headerName: "Date of Completion", type: "date", width: 200 },
         
     ]
   return (
@@ -57,12 +55,12 @@ export const AdminCourseReport = () => {
             },
           }}
         >
-            <DataGrid 
-                rows={Studentinfo}
-                columns={columns}
-                components={{ Toolbar: GridToolbar }}
-                pageSize={8}
-            />
+        <DataGrid 
+            rows={CourseStudentInfo}
+            columns={columns}
+            components={{ Toolbar: GridToolbar }}
+            pageSize={8}
+        />
         </Box>
     </Box>
     </div>
