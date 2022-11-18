@@ -10,7 +10,7 @@ export default function NewCourse() {
   //const navigate = useNavigate();
   const [courseTitle, setCourseTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [Photo, setPhoto] = useState('');
+  // const [Photo, setPhoto] = useState('');
 
   const addCourse = async () =>{
     await axios({

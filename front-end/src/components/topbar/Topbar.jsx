@@ -7,7 +7,7 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Dot Ethiopia</span>
+          <span className="logo">Welocome to Instructor dashboard</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
