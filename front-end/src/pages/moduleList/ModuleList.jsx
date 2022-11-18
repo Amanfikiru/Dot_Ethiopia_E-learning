@@ -62,18 +62,17 @@ export default function ModuleList() {
             <TableCell component="th" scope="row">
               {index+1}
             </TableCell>
-            <TableCell  align="left">{row.title}</TableCell>
-            <TableCell align="left">{row.description}</TableCell>
+            <TableCell  align="left">{row.name}</TableCell>
+            <TableCell align="left">{row.notes}</TableCell>
+            <TableCell align="left">{row.youtube_url}</TableCell>
             <TableCell align="left" sx={{cursor:"pointer"}}>
-              <Link to={"/courseEdit/" + row.id}> 
+              {/* <Link to={"/courseEdit/" + row.id}>  */}
               <button className="userListEdit"><IconPencil /></button>
-              </Link>
+              {/* </Link> */}
             
               <button className="userListDelete" onClick={() => handleDelete(row)}> <IconTrash />
               </button>
-              <Link to="/newmodule">
-               <button className="userAddButton"> <IconVocabulary /> </button>
-              </Link>
+              
             </TableCell>
            
           </TableRow>

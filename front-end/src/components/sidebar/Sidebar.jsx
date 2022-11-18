@@ -20,7 +20,7 @@ export default function Sidebar() {
         <div className="sidebarMenu">
         
           <div className="brand">
-            <img src="./DotLogo2.PNG" width="100px" height="100px" />
+            <img src="./dotlogo.PNG" width="100px" height="100px" />
           </div>
           <h3 className="sidebarTitle">Instructor Dashboard</h3>
           <ul className="sidebarList">
