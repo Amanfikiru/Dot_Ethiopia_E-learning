@@ -1,4 +1,4 @@
-import { Publish} from "@material-ui/icons";
+import { Photo, Publish} from "@material-ui/icons";
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./newCourse.css";
@@ -10,7 +10,7 @@ export default function NewCourse() {
   //const navigate = useNavigate();
   const [courseTitle, setCourseTitle] = useState("");
   const [description, setDescription] = useState("");
-  // const [by, setBy] = useState('');
+  const [Photo, setPhoto] = useState('');
 
   const addCourse = async () =>{
     await axios({
@@ -20,7 +20,7 @@ export default function NewCourse() {
           "Content-type" : "application/json",
       },
     data : 
-      { title:courseTitle, description:description, }
+      { title:courseTitle, description:description, photo:Photo, }
     
   })
 };
@@ -33,6 +33,7 @@ export default function NewCourse() {
     addCourse()
     setCourseTitle("")
     setDescription("")
+    setPhoto("")
    
   }
 
@@ -57,7 +58,7 @@ export default function NewCourse() {
               </div>
               <div className="userUpdateItem">
                 <label>Description</label>
-                <textarea value={description} id="w" rows="4"  cols="50"onChange={(e) => setDescription(e.target.value)}>
+                <textarea value={description} id="w" rows="19"  cols="90"onChange={(e) => setDescription(e.target.value)}>
 
                 </textarea>
                 
@@ -84,7 +85,13 @@ export default function NewCourse() {
                 <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
                 </label>
-                <input type="file" id="file" style={{ display: "none" }} /> 
+                <input 
+                type="file" 
+                id="file" 
+                value={Photo}
+                style={{ display: "none" }} 
+                onChange={(e) => setPhoto(e.target.value)}
+                /> 
               </div>
               <button className="userUpdateButton" onClick={(e)=>postData(e)}>Add</button>
             </div>

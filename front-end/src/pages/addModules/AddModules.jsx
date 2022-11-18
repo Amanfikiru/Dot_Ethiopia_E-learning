@@ -54,7 +54,7 @@ const postData = (e) => {
                 <label>Notes</label>
                 <textarea 
                value={Notes} 
-                id="w" rows="4"  cols="50"
+                id="w" rows="19"  cols="90"
                 onChange={(e) => setNotes(e.target.value)}
                 >
 
@@ -73,29 +73,18 @@ const postData = (e) => {
                 />
               </div>
              
-            </div>
-            <div className="userUpdateRight">
-              <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="https://images.pexels.com/photos/3358707/pexels-photo-3358707.png?cs=srgb&dl=pexels-rikka-ameboshi-3358707.jpg&fm=jpg&_gl=1*q69zqi*_ga*NzU2NTQ5NjYzLjE2NjY4OTYyMjQ.*_ga_8JE65Q40S6*MTY2Njg5NjIyNi4xLjEuMTY2Njg5NjI1MC4wLjAuMA."
-                  alt=""
-                />
-                <label htmlFor="file">
-                  <Publish className="userUpdateIcon" />
-                </label>
-                <input type="file" 
-                       id="file" 
-                       value={videourl}
-                       style={{ display: "none" }} 
-                       onChange={(e) => setNotes(e.target.value) }
-                /> 
+            
               </div>
-              <button className="userUpdateButton" 
+
+            <div className="userUpdateRight">
+             
+             <button className="userUpdateButton" 
               onClick={(e)=>postData(e)}
               >Add</button>
             </div>
+            
           </form>
           </div>
+          
     )
 }

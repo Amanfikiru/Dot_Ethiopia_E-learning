@@ -1,8 +1,8 @@
 .sidebar {
   flex: 1;
   /* width: 300px; */
-  max-width: 350px;
-  height: calc(100vh - 50px);
+  width: 400px;
+  /* height: calc(100vh - 50px); */
   background-color: black;
   position: sticky;
   top: 50px;
@@ -21,7 +21,14 @@
   font-size: 13px;
   color: rgb(187, 186, 186);
 }
-
+.brand {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+ 
+}
 .sidebarList {
   list-style: none;
   padding: 5px;

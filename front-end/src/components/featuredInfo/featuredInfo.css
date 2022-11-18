@@ -12,6 +12,7 @@
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color: orange;
 }
 
 .featuredTitle{
@@ -38,11 +39,11 @@
 .featuredIcon{
     font-size: 20px;
     margin-left: 5px;
-    color: orange;
+    color: black;
 }
 
 .featuredIcon.negative{
-    color: orange;
+    color: black;
 }
 
 .featuredSub{

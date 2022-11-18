@@ -18,6 +18,10 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
+        
+          <div className="brand">
+            <img src="./DotLogo2.PNG" width="100px" height="100px" />
+          </div>
           <h3 className="sidebarTitle">Instructor Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/" className="link">
